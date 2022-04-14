@@ -1,3 +1,11 @@
+/**
+ * Performs different string methods
+ * 
+ * date         20220213
+ * @filename    StringMethods.java
+ * @author      Nicole D.
+ */
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -154,32 +162,75 @@ public class StringMethods extends JFrame {
 		outputReplaceA.setBounds(655, 505, 110, 14);
 		panel.add(outputReplaceA);
 		
-		JButton findLength = new JButton("Length");
+		JButton findLength = new JButton("Length"); 
 		findLength.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				String inputLength = inputForLength.getText();
-				int countLength = inputLength.length();
-				
-				outputLength.setText(String.valueOf(countLength));
+				outputLength.setText(String.valueOf(inputLength.length()));
 			}
 		});
+		
 		findLength.setBounds(238, 137, 89, 23);
 		panel.add(findLength);
 		
 		JButton getAllCaps = new JButton("All Caps");
+		getAllCaps.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String inputUpperCase = inputForAllCaps.getText();
+				outputAllCaps.setText(inputUpperCase.toUpperCase());
+			}
+		});
+		
 		getAllCaps.setBounds(238, 190, 89, 23);
 		panel.add(getAllCaps);
 		
 		JButton getFourthChar = new JButton("4th Character");
+		getFourthChar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String inputFourthChar = inputForFourthChar.getText();
+				outputFourthChar.setText(String.valueOf(inputFourthChar.charAt(3)));
+				
+			}
+		});
 		getFourthChar.setBounds(238, 247, 128, 23);
 		panel.add(getFourthChar);
 		
 		JButton getIdentical = new JButton("Identical?");
-		getIdentical.setBounds(349, 305, 89, 23);
+		getIdentical.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String identical_1 = inputForIdentical_1.getText();
+				String identical_2 = inputForIdentical_2.getText();
+				
+				if (identical_1.equals(identical_2)) {
+					outputIdentical.setText("Yes!");
+				}
+				
+				else {
+					outputIdentical.setText("No!");
+				}
+			}
+		});
+		getIdentical.setBounds(349, 305, 99, 23);
 		panel.add(getIdentical);
 		
 		JButton getLetterFound = new JButton("Letter found?");
+		getLetterFound.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String findLetterWord = inputForStringFind.getText();
+				String findLetterLetter = inputForLetterFind.getText();
+				
+				if (findLetterWord.contains(findLetterLetter)) {
+					
+					
+				}
+;
+				}
+		});
 		getLetterFound.setBounds(311, 367, 127, 23);
 		panel.add(getLetterFound);
 		
