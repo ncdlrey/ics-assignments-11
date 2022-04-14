@@ -159,7 +159,7 @@ public class StringMethods extends JFrame {
 		
 		JLabel outputReplaceA = new JLabel("--");
 		outputReplaceA.setHorizontalAlignment(SwingConstants.CENTER);
-		outputReplaceA.setBounds(655, 505, 110, 14);
+		outputReplaceA.setBounds(655, 505, 110, 19);
 		panel.add(outputReplaceA);
 		
 		JButton findLength = new JButton("Length"); 
@@ -225,20 +225,35 @@ public class StringMethods extends JFrame {
 				String findLetterLetter = inputForLetterFind.getText();
 				
 				if (findLetterWord.contains(findLetterLetter)) {
-					
-					
+					outputLetterFound.setText("The letter was found!");	
 				}
-;
+				
+				else {
+					outputLetterFound.setText("The letter was not found.");
 				}
+				
+			}
 		});
+		
 		getLetterFound.setBounds(311, 367, 127, 23);
 		panel.add(getLetterFound);
 		
 		JButton getCharFourToSix = new JButton("Charcters 4-6");
+		getCharFourToSix.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		getCharFourToSix.setBounds(311, 438, 137, 23);
 		panel.add(getCharFourToSix);
 		
 		JButton getAReplacement = new JButton("Replace \"a\"");
+		getAReplacement.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String wordToReplaceA = inputForReplaceA.getText();
+				outputReplaceA.setText(wordToReplaceA.replace("a", "x"));
+			}
+		});
 		getAReplacement.setBounds(311, 501, 127, 23);
 		panel.add(getAReplacement);
 		
