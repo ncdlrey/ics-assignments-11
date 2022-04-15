@@ -62,18 +62,6 @@ public class StringMethods extends JFrame {
 		title.setBounds(155, 39, 575, 53);
 		panel.add(title);
 		
-		JLabel length = new JLabel("Enter a string. The program will output the number of characters in it:");
-		length.setBounds(70, 103, 479, 27);
-		panel.add(length);
-		
-		JLabel lowerCase = new JLabel("Enter a string in lower case letters. The program will output the string in all caps:");
-		lowerCase.setBounds(70, 159, 479, 27);
-		panel.add(lowerCase);
-		
-		JLabel fourthChar = new JLabel("Enter a string. The program will output the 4th character:");
-		fourthChar.setBounds(70, 222, 442, 14);
-		panel.add(fourthChar);
-		
 		JLabel identical = new JLabel("Enter two strings. The program will output whether or not they're identical:");
 		identical.setBounds(70, 281, 502, 14);
 		panel.add(identical);
@@ -90,18 +78,6 @@ public class StringMethods extends JFrame {
 		replaceAwithX.setHorizontalAlignment(SwingConstants.LEFT);
 		replaceAwithX.setBounds(70, 472, 695, 14);
 		panel.add(replaceAwithX);
-		
-		JTextArea inputForLength = new JTextArea();
-		inputForLength.setBounds(114, 136, 98, 22);
-		panel.add(inputForLength);
-		
-		JTextArea inputForAllCaps = new JTextArea();
-		inputForAllCaps.setBounds(114, 189, 98, 22);
-		panel.add(inputForAllCaps);
-		
-		JTextArea inputForFourthChar = new JTextArea();
-		inputForFourthChar.setBounds(114, 248, 98, 22);
-		panel.add(inputForFourthChar);
 		
 		JTextArea inputForIdentical_1 = new JTextArea();
 		inputForIdentical_1.setBounds(114, 304, 98, 22);
@@ -127,40 +103,44 @@ public class StringMethods extends JFrame {
 		inputForReplaceA.setBounds(114, 500, 143, 22);
 		panel.add(inputForReplaceA);
 		
-		JLabel outputLength = new JLabel("--");
-		outputLength.setHorizontalAlignment(SwingConstants.CENTER);
-		outputLength.setBounds(655, 141, 110, 14);
-		panel.add(outputLength);
-		
 		JLabel outputIdentical = new JLabel("--");
+		outputIdentical.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
 		outputIdentical.setHorizontalAlignment(SwingConstants.CENTER);
-		outputIdentical.setBounds(655, 309, 110, 14);
+		outputIdentical.setBounds(583, 304, 182, 19);
 		panel.add(outputIdentical);
 		
-		JLabel outputAllCaps = new JLabel("--");
-		outputAllCaps.setHorizontalAlignment(SwingConstants.CENTER);
-		outputAllCaps.setBounds(655, 194, 110, 14);
-		panel.add(outputAllCaps);
-		
-		JLabel outputFourthChar = new JLabel("--");
-		outputFourthChar.setHorizontalAlignment(SwingConstants.CENTER);
-		outputFourthChar.setBounds(655, 248, 110, 14);
-		panel.add(outputFourthChar);
-		
 		JLabel outputLetterFound = new JLabel("--");
+		outputLetterFound.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
 		outputLetterFound.setHorizontalAlignment(SwingConstants.CENTER);
-		outputLetterFound.setBounds(655, 371, 110, 14);
+		outputLetterFound.setBounds(559, 366, 206, 19);
 		panel.add(outputLetterFound);
 		
 		JLabel outputCharFourToSix = new JLabel("--");
+		outputCharFourToSix.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
 		outputCharFourToSix.setHorizontalAlignment(SwingConstants.CENTER);
-		outputCharFourToSix.setBounds(655, 447, 110, 14);
+		outputCharFourToSix.setBounds(655, 439, 110, 22);
 		panel.add(outputCharFourToSix);
 		
 		JLabel outputReplaceA = new JLabel("--");
+		outputReplaceA.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
 		outputReplaceA.setHorizontalAlignment(SwingConstants.CENTER);
-		outputReplaceA.setBounds(655, 505, 110, 19);
+		outputReplaceA.setBounds(655, 497, 110, 27);
 		panel.add(outputReplaceA);
+		
+		// Length method
+		JLabel length = new JLabel("Enter a string. The program will output the number of characters in it:");
+		length.setBounds(70, 103, 479, 27);
+		panel.add(length);
+		
+		JTextArea inputForLength = new JTextArea();
+		inputForLength.setBounds(114, 136, 98, 22);
+		panel.add(inputForLength);
+		
+		JLabel outputLength = new JLabel("--");
+		outputLength.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
+		outputLength.setHorizontalAlignment(SwingConstants.CENTER);
+		outputLength.setBounds(655, 136, 110, 19);
+		panel.add(outputLength);
 		
 		JButton findLength = new JButton("Length"); 
 		findLength.addActionListener(new ActionListener() {
@@ -174,6 +154,22 @@ public class StringMethods extends JFrame {
 		findLength.setBounds(238, 137, 89, 23);
 		panel.add(findLength);
 		
+		
+		// All caps method
+		JLabel lowerCase = new JLabel("Enter a string in lower case letters. The program will output the string in all caps:");
+		lowerCase.setBounds(70, 159, 479, 27);
+		panel.add(lowerCase);
+		
+		JTextArea inputForAllCaps = new JTextArea();
+		inputForAllCaps.setBounds(114, 189, 98, 22);
+		panel.add(inputForAllCaps);
+		
+		JLabel outputAllCaps = new JLabel("--");
+		outputAllCaps.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
+		outputAllCaps.setHorizontalAlignment(SwingConstants.CENTER);
+		outputAllCaps.setBounds(655, 189, 110, 22);
+		panel.add(outputAllCaps);
+		
 		JButton getAllCaps = new JButton("All Caps");
 		getAllCaps.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -185,6 +181,22 @@ public class StringMethods extends JFrame {
 		
 		getAllCaps.setBounds(238, 190, 89, 23);
 		panel.add(getAllCaps);
+		
+		// Fourth character method
+		
+		JLabel fourthChar = new JLabel("Enter a string. The program will output the 4th character:");
+		fourthChar.setBounds(70, 222, 442, 14);
+		panel.add(fourthChar);
+		
+		JTextArea inputForFourthChar = new JTextArea();
+		inputForFourthChar.setBounds(114, 248, 98, 22);
+		panel.add(inputForFourthChar);
+		
+		JLabel outputFourthChar = new JLabel("--");
+		outputFourthChar.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
+		outputFourthChar.setHorizontalAlignment(SwingConstants.CENTER);
+		outputFourthChar.setBounds(655, 248, 110, 22);
+		panel.add(outputFourthChar);
 		
 		JButton getFourthChar = new JButton("4th Character");
 		getFourthChar.addActionListener(new ActionListener() {
@@ -198,6 +210,9 @@ public class StringMethods extends JFrame {
 		getFourthChar.setBounds(238, 247, 128, 23);
 		panel.add(getFourthChar);
 		
+		
+		// Identical method
+		
 		JButton getIdentical = new JButton("Identical?");
 		getIdentical.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -206,11 +221,11 @@ public class StringMethods extends JFrame {
 				String identical_2 = inputForIdentical_2.getText();
 				
 				if (identical_1.equals(identical_2)) {
-					outputIdentical.setText("Yes!");
+					outputIdentical.setText("These words are identical!");
 				}
 				
 				else {
-					outputIdentical.setText("No!");
+					outputIdentical.setText("These words are not identical!");
 				}
 			}
 		});
@@ -241,6 +256,9 @@ public class StringMethods extends JFrame {
 		JButton getCharFourToSix = new JButton("Charcters 4-6");
 		getCharFourToSix.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				String wordForCharFourToSix = inputForEightChar.getText().substring(3,6);
+				outputCharFourToSix.setText(wordForCharFourToSix);
 				
 			}
 		});
