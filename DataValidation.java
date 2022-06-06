@@ -1,3 +1,12 @@
+/**
+ * 
+ * Data validation system that checks for errors in prompted inputs.
+ * 
+ * duedate      20220513
+ * @filename    DataValidation.java
+ * @author      Nicole Delos Reyes
+ *
+ **/
 
 import java.util.Scanner;
 public class DataValidation {
