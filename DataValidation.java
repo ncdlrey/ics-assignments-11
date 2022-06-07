@@ -43,7 +43,9 @@ public class DataValidation {
 			}
 			
 			catch (NumberFormatException e) {
-				System.out.println("Invalid input. That is not an integer.");			}
+				System.out.println("Invalid input. That is not an integer.");	
+				System.out.print("\nPlease re-enter: ");
+			}
 		}
 		
 		return tempString;
@@ -87,8 +89,8 @@ public class DataValidation {
 		
 		int value = Integer.parseInt(stage4Input);
 		
-		while (value < 50 || value > 500) {
-			System.out.println("'" + value + "' is not between 50 and 500.");
+		while (value < 5 || value > 500) {
+			System.out.println("'" + value + "' is not between 5 and 500.");
 
 			System.out.print("\nPlease re-enter: ");
 			stage4Input = realInt();
@@ -144,36 +146,36 @@ public class DataValidation {
 		
 		System.out.println("\n                  STAGE 2");
 		System.out.println("                 ---------");
-		System.out.println("Enter a STRING that contains at least one lowercase “a”. ");
+		System.out.print("Enter a STRING that contains at least one lowercase “a”: ");
 		stage2Input = keyedInput.nextLine();
 		stage2(stage2Input);
 		
 		System.out.println("\n                  STAGE 3");
 		System.out.println("                 ---------");
-		System.out.println("Enter a STRING that contains between 5-15 charcaters and DOESN'T contain the letter “z”. ");
+		System.out.print("Enter a STRING that contains between 5-15 charcaters and DOESN'T contain the letter “z”: ");
 		stage3Input = keyedInput.nextLine();
 		stage3(stage3Input);
 		
 		System.out.println("\n                  STAGE 4");
 		System.out.println("                 ---------");
-		System.out.println("Enter an INTEGER between 50 and 500.");		
+		System.out.print("Enter an INTEGER between 5 and 500: ");		
 		stage4Input = realInt();
 		stage4(stage4Input);
 		
 		System.out.println("\n                  STAGE 5");
 		System.out.println("                 ---------");
-		System.out.println("Enter a NEGATIVE INTEGER.");		
+		System.out.print("Enter a NEGATIVE INTEGER: ");		
 		stage5Input = realInt();
 		stage5(stage5Input);
 		
 		System.out.println("\n                  STAGE 6");
 		System.out.println("                 ---------");
-		System.out.println("Stage 6: Enter a positive, odd integer.");
+		System.out.print("Stage 6: Enter a positive, odd integer: ");
 		stage6Input = realInt();
 		stage6(stage6Input);
 		
 		System.out.println("\nCongratulations! You have completed the data validation test!");
-		System.out.println("nSee you around :-)");
+		System.out.println("\nSee you around :-)");
 		
 		
 		
