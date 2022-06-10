@@ -20,17 +20,65 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AlgorithmDesign extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField factorialInput;
 	private JTextField primeNumberInput;
-	private JTextField fibonacciInput;
+	private JTextField fibonacciInput;	
+	
+	public static int getFactorial(int num) {
+		
 
-	/**
-	 * Launch the application.
-	 */
+		for(int i = num - 1; i >= 1; i--) {
+			
+			num = num*i;	
+		}
+		return num;
+	}
+	
+	public static String isPrime(int num) {
+		String primeOrNot = "";
+		
+		boolean flag = false;
+	    for (int i = 2; i <= num / 2; ++i) {
+	      if (num % i == 0) {
+	        flag = true;
+	        break;
+	      }
+	    }
+
+	    if (!flag) {
+	    	 primeOrNot = "Number is prime";
+	    }	  
+	    
+	    else {
+	    	 primeOrNot = "Number is not prime";
+	   }
+		
+		return primeOrNot;
+	}
+	
+	public static int correspondingFibonacci(int num) {
+		if(num==0 || num==1) {
+	        return num;
+		} 
+		
+		if(num==-1) {
+		    return 1;
+		}
+		
+		if(num<0) {
+	        int sign = num % 2 == 0 ? -1 : 1;
+	        return sign * correspondingFibonacci(-num);
+	    } else {
+	        return correspondingFibonacci(num-1) + correspondingFibonacci(num-2);
+	    }      
+	}
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -44,9 +92,6 @@ public class AlgorithmDesign extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public AlgorithmDesign() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 624, 460);
@@ -96,31 +141,111 @@ public class AlgorithmDesign extends JFrame {
 		fibonacciInput.setBounds(86, 339, 49, 20);
 		panel.add(fibonacciInput);
 		
-		JButton btnFactorial = new JButton("Factorial");
-		btnFactorial.setBounds(223, 157, 89, 23);
-		panel.add(btnFactorial);
-		
-		JButton btnPrime = new JButton("Prime");
-		btnPrime.setBounds(223, 247, 89, 23);
-		panel.add(btnPrime);
-		
-		JButton btnFibonacci = new JButton("Fibonacci");
-		btnFibonacci.setBounds(223, 338, 89, 23);
-		panel.add(btnFibonacci);
-		
 		JLabel factorialOutput = new JLabel("---");
 		factorialOutput.setHorizontalAlignment(SwingConstants.CENTER);
-		factorialOutput.setBounds(361, 161, 89, 14);
+		factorialOutput.setBounds(322, 161, 250, 20);
 		panel.add(factorialOutput);
 		
 		JLabel primeOutput = new JLabel("---");
 		primeOutput.setHorizontalAlignment(SwingConstants.CENTER);
-		primeOutput.setBounds(361, 251, 89, 14);
+		primeOutput.setBounds(322, 251, 250, 20);
 		panel.add(primeOutput);
 		
 		JLabel fibonacciOutput = new JLabel("---");
 		fibonacciOutput.setHorizontalAlignment(SwingConstants.CENTER);
-		fibonacciOutput.setBounds(361, 342, 89, 14);
+		fibonacciOutput.setBounds(361, 342, 177, 14);
 		panel.add(fibonacciOutput);
+		
+		JButton btnFactorial = new JButton("Factorial");
+		btnFactorial.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					int factorialN = Integer.parseInt(factorialInput.getText());
+					
+					if (factorialN < 0) {
+						factorialOutput.setText("Please only enter positive integers.");
+					}
+					
+					else {
+					int factorialResult = getFactorial(factorialN);
+					factorialOutput.setText(Integer.toString(factorialResult));
+					}
+
+				} 
+				
+				catch (NumberFormatException ex) {
+					
+					try {
+						double factorialD = Double.parseDouble(factorialInput.getText());
+						factorialOutput.setText("Please only enter integers.");				
+					}
+					
+					catch (NumberFormatException exp) {	
+						factorialOutput.setText("Not a number :-(");
+					}
+				}
+			}
+		});
+		btnFactorial.setBounds(223, 157, 89, 23);
+		panel.add(btnFactorial);
+		
+		JButton btnPrime = new JButton("Prime");
+		btnPrime.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					int primeNum = Integer.parseInt(primeNumberInput.getText());
+					
+					if (primeNum < 0) {
+						primeOutput.setText("Negative numbers cannot be prime.");
+					}
+										
+					else {
+					String primeResult = isPrime(primeNum);
+					primeOutput.setText(primeResult);
+					}
+				}
+				
+				catch (NumberFormatException ex) {		
+					try {
+						double primeNumD = Double.parseDouble(primeNumberInput.getText());
+						primeOutput.setText("Prime numbers are WHOLE numbers.");
+					}
+					
+					catch (NumberFormatException exp) {	
+						primeOutput.setText("Not a number :-(");
+					}
+					
+			    }	
+			}
+		});
+		btnPrime.setBounds(223, 247, 89, 23);
+		panel.add(btnPrime);
+		
+		JButton btnFibonacci = new JButton("Fibonacci");
+		btnFibonacci.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					int fibonacciNum = Integer.parseInt(fibonacciInput.getText());
+					int fibonacciResult = correspondingFibonacci(fibonacciNum);
+					fibonacciOutput.setText(Integer.toString(fibonacciResult));
+				}
+				
+				catch (NumberFormatException ex) {
+					try {
+						double fibonacciNumD = Double.parseDouble(fibonacciInput.getText());
+						fibonacciOutput.setText("Please only enter integers.");				
+					}
+					
+					catch (NumberFormatException exp) {	
+						fibonacciOutput.setText("Not a number :-(");
+					}
+				}
+			}
+		});
+		btnFibonacci.setBounds(223, 338, 89, 23);
+		panel.add(btnFibonacci);
 	}
 }
