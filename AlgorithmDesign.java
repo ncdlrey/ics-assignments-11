@@ -1,7 +1,6 @@
 /**
  * 
- * Allows user to enter a number to determine its factorial, whether or not it's a prime number,
- * and its corresponding Fibonacci number.
+ * Returns a number's factorial, whether or not it's a prime number, and/or its corresponding Fibonacci number.
  * 
  * duedate      20220520
  * @filename    AlgorithmDesign.java
